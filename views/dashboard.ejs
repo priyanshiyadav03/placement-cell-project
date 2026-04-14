@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard - Available Jobs</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+      background: #f4f4f4;
+    }
+    h2 {
+      text-align: center;
+    }
+    .company-card {
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin: 15px auto;
+      width: 80%;
+    }
+    .company-card h3 {
+      margin: 0;
+      color: #333;
+    }
+    .apply-btn {
+      display: inline-block;
+      background: #4CAF50;
+      color: white;
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 4px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Welcome to the Placement Dashboard</h2>
+    <!-- 🧭 Admin Buttons -->
+ <% if(user && user.role=='admin'){%> <div class="top-buttons">
+    <a href="/add-company" class="btn">➕ Add New Company</a>
+    <a href="/admin/applications" class="btn">📋 View All Applications</a>
+  </div>
+  <% } %>
+
+  <% if (companies.length > 0) { %>
+    <% companies.forEach(company => { %>
+      <div class="company-card">
+        <h3><%= company.name %> — <%= company.job_role %></h3>
+        <p><strong>Package:</strong> <%= company.package %> LPA</p>
+        <p><strong>Eligibility:</strong> CGPA ≥ <%= company.eligibility_cgpa %></p>
+        <p><strong>Total Applicants:</strong> <%= company.total_applicants %></p>
+        <a class="apply-btn" href="/apply/<%= company.id %>">Apply Now</a>
+      </div>
+    <% }) %>
+  <% } else { %>
+    <p style="text-align:center;">No companies available right now.</p>
+  <% } %>
+
+</body>
+</html>

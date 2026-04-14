@@ -1,0 +1,49 @@
+<h2>Student Registration</h2>
+<form method="POST" action="/register">
+  <input name="name" placeholder="Name" required><br>
+  <input name="email" placeholder="Email" required><br>
+  <input name="roll_no" placeholder="roll no" required><br>
+
+  <input name="password" type="password" placeholder="Password" required><br>
+  <!-- academic -->
+  <input name="age" type="number" placeholder="Age" required><br>
+  <input name="cgpa" type="number" step="0.01" placeholder="CGPA"><br>
+  <input name="backlogs" type="number" placeholder="Backlogs"><br>
+  <!-- experience -->
+  <input name="internships" type="number" placeholder="Internships" required><br>
+  <input name="projects" type="number" placeholder="Projects" required><br>
+  <input name="certifications" type="number" placeholder="Certifications" required><br>
+  <!-- skills -->
+  <input name="coding_skills" type="number" min="1" max="10" placeholder="Coding Skills (1-10)" required><br>
+  <input name="communication_skills" type="number" min="1" max="10" placeholder="Communication Skills (1-10)" required><br>
+  <input name="aptitude_score" type="number" step="0.01" placeholder="Aptitude Score" required><br>
+  <!--Dropdowns -->
+   <label>Gender:</label>
+  <select name="gender" required>
+    <option value="">Select</option>
+    <option value="Male">Male</option>
+    <option value="Female">Female</option>
+  </select><br>
+    <label>Degree:</label>
+  <select name="degree" required>
+    <option value="">Select</option>
+    <option value="BCA">BCA</option>
+    <option value="BE">BE</option>
+    <option value="BSc">BSc</option>
+    <option value="BTech">BTech</option>
+  </select><br>
+    <label>Branch:</label>
+  <select name="branch" required>
+    <option value="">Select</option>
+    <option value="AI">AI</option>
+    <option value="CS">CS</option>
+    <option value="DS">DS</option>
+    <option value="Electrical">Electrical</option>
+    <option value="IT">IT</option>
+    <option value="Mechanical">Mechanical</option>
+  </select><br>
+  <!--extra -->
+   <input name="skills" placeholder="Other Skills (optional)"><br>
+  <button type="submit">Register</button>
+</form>
+ <p>Already registered? <a href="/login">Login here</a></p>

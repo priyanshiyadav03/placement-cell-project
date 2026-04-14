@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Apply for <%= company.name %></title>
+</head>
+<body>
+  <h2>Apply for <%= company.job_role %> at <%= company.name %></h2>
+
+  <p><strong>Package:</strong> <%= company.package %> LPA</p>
+  <p><strong>Eligibility:</strong> CGPA ≥ <%= company.eligibility_cgpa %></p>
+
+  <form method="POST" action="/apply/<%= company.id %>">
+    <label>Your Roll No:</label><br>
+    <input type="text" name="roll_no" required><br><br>
+
+    <label>Your Skills:</label><br>
+    <textarea name="skills" rows="4" cols="40" required></textarea><br><br>
+
+    <button type="submit">Confirm Application</button>
+  </form>
+
+  <br>
+  <a href="/dashboard">← Back to Dashboard</a>
+</body>
+</html>

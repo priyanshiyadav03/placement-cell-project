@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>All Applications - Admin</title>
+    <style>
+      table {
+        width: 90%;
+        border-collapse: collapse;
+        margin: 20px auto;
+        font-family: Arial;
+      }
+      th, td {
+        border: 1px solid #ccc;
+        padding: 10px;
+        text-align: center;
+      }
+      th {
+        background: #333;
+        color: white;
+      }
+      tr:nth-child(even) { background: #f9f9f9; }
+      
+      h2 { text-align: center; }
+    </style>
+  </head>
+  <body>
+    <%- include('partials/layout', { title: "All Applications" }) %>
+    <h2 class="text-center mb-4">🧾 All Applications (Admin View)</h2>
+    <% if (applications.length > 0) { %>
+      <table class="table table-striped table-bordered text-center align-middle">
+        <thead class="table-dark">
+        <tr>
+    <th>Company</th>
+    <th>Role</th>
+    <th>Eligibility (CGPA)</th>
+    <th>Package (LPA)</th>
+    <th>Total Applicants</th>
+  </tr>
+
+  <% applications.forEach(app => { %>
+    <tr>
+      <td><%= app.company_name %></td>
+      <td><%= app.job_role %></td>
+      <td><%= app.eligibility %></td>
+      <td><%= app.package %></td>
+      <td><%= app.total_applicants %></td>
+    </tr>
+        <% }) %>
+      </table>
+    <% } else{%>
+    <p>No applications found.</p>
+<% } %>
+     
+    
+    
+<%- include('partials/footer') %>
+  </body>
+</html>

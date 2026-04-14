@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>My Applications</title>
+    <style>
+      table {
+        width: 80%;
+        border-collapse: collapse;
+        margin: 20px auto;
+        font-family: Arial;
+      }
+      th, td {
+        border: 1px solid #ccc;
+        padding: 10px;
+        text-align: center;
+      }
+      th {
+        background: #4CAF50;
+        color: white;
+      }
+      tr:nth-child(even) {
+        background: #f2f2f2;
+      }
+      h2 {
+        text-align: center;
+        font-family: Arial;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>📋 My Applications</h2>
+    <% if (applications.length > 0) { %>
+      <table>
+        <tr>
+          <th>Company</th>
+          <th>Role</th>
+          <th>Eligibility</th>
+          <th>Package (LPA)</th>
+        </tr>
+        <% applications.forEach(app => { %>
+          <tr>
+            <td><%= app.name %></td>
+            <td><%= app.job_role %></td>
+            <td><%= app.eligibility_cgpa %></td>
+            <td><%= app.package %></td>
+          </tr>
+        <% }) %>
+      </table>
+    <% } else { %>
+      <p style="text-align:center;">You haven’t applied for any jobs yet.</p>
+    <% } %>
+  </body>
+</html>
