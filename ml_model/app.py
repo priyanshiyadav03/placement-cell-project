@@ -60,7 +60,10 @@ import pickle
 import numpy as np
 
 # Load model
-model = pickle.load(open("placement_model.pkl", "rb"))
+import os
+
+model_path = os.path.join(os.path.dirname(__file__), "placement_model.pkl")
+model = pickle.load(open(model_path, "rb"))
 
 st.title("Placement Prediction System")
 
